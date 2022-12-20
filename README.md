@@ -1,6 +1,6 @@
 # Ecommerce App
 
-This is a simple ecommerce app, it is 'simple' because the api has only 20 products, this app is integrated Supabase Auth and Database to make it a fully functional ecommerce app. It also has a CMS, a page that allows admin to enter product data, the only thing missing is a shopping cart page and checkout functionality which will be added sooner.
+This is an ecommerce app, this app is integrated with Supabase Auth and Database to make it a fully functional ecommerce app. It also has a CMS, a page that allows admin to enter product data, the only thing missing is a shopping cart page and checkout functionality which will be added sooner.
 
 # Supabase as a backend service
 
