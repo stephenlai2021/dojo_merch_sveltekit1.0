@@ -1,20 +1,11 @@
-import supabase from "$lib/supabase/config";
-
-// export const load = async ({ params }) => {
-//   const fetchProduct = async () => {
-//     const productRes = await fetch(`https://fakestoreapi.com/products/${params.id}`)
-//     const product = await productRes.json()
-//     console.log('product: ', product)
-//     return product
-//   }
-//   return { product: fetchProduct() }
-// }
+import { supabaseClient } from "$lib/supabase/config";
 
 export const load = async ({ params }) => {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("products")
     .select("*")
     .eq("id", params.id);
-  console.log("data: ", data);
+  console.log("product: ", data);
+
   return { product: data }
 };

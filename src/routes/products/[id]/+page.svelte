@@ -1,9 +1,12 @@
 <script>
+  import { shoppingList } from '$lib/stores'
   import ProductDetails from "$lib/components/ProductDetails.svelte";
 
   export let data;
   const { product } = data;
-  console.log("product: ", product);
+  // console.log("product: ", product);
+
+  $: console.log(JSON.stringify($shoppingList, null, 2))
 </script>
 
 <svelte:head>

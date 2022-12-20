@@ -1,19 +1,13 @@
-// import 'dotenv/config'
-import supabase from "$lib/supabase/config";
+import { supabaseClient } from "$lib/supabase/config";
+import { redirect } from "@sveltejs/kit"
 
-// export const load = async () => {
-//   const fetchProducts = async () => {
-//     const res = await fetch('https://fakestoreapi.com/products')
-//     const products = await res.json()
-//     console.log('products: ', products)
-//     return products
-//   }
-//   return { products: fetchProducts() }
-// }
+export const load = async ({ locals }) => {
+  const { data, error } = await supabaseClient.from("products").select("*");
+  // console.log("products: ", data);
 
-export const load = async () => {
-  const { data, error } = await supabase.from("products").select("*");
-  console.log("data: ", data);
+  if (!locals.session) {
+    throw redirect(303, '/')
+  }
 
   return { products: data };
 };
