@@ -20,6 +20,7 @@ const { products } = data
 export let data
 const { products } = data
 ```
+- all pages are securely protected, if you are not loggedin yet and you want to access products or dashboard page/route by entering `/products` or `/dashboard` in address bar, you will be redirect to home page to login; if you are already loggedin and try to access home page or signup page, you will be redirected to products page, all this route potection are handle in server side.
 
 # How to setup this project
 - First download this repo into your desktop and unzip it
