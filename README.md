@@ -9,12 +9,12 @@ I personally think Supabase is the best backend service, because it has the clea
 # Project structure
 
 - In `src/routes/products/+page.serve.js`, load function fetch Supabase db with supabas SDK, then return products data as props to be used in +page.svete
-- In src/routes/products/+page.svelte, receives data passsed from `+page.server.js`, and displayed in template
+- In src/routes/products/+page.svelte, receives data passed from `+page.server.js`, and displayed in template
 ```
 export let data
 const { products } = data
 ```
-- same with single product itme, in `src/routes/products/[id]/+page.serve.js`, load function fetch Supabase db with supabas SDK, then return products data as props to be used in +page.svete
+- same with product details page, in `src/routes/products/[id]/+page.serve.js`, load function fetch Supabase db with supabas SDK, then return products data as props to be used in +page.svete
 - In src/routes/products/[id]/+page.svelte, receives data passsed from `+page.server.js`, and displayed in template
 ```
 export let data
