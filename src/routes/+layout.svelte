@@ -38,7 +38,7 @@
 {#if $page.url.pathname !== "/products" && $page.url.pathname !== `/products/${$page.params.id}`}
   <header class="shadow-sm bg-white">
     <nav class="container mx-auto p-4 flex justify-between">
-      <div class="font-bold">Sveltekit Dojo</div>
+      <div class="font-bold">Sveltekit Ecommerce</div>
       {#if $page.url.pathname !== "/"}
         <!-- <Navbar /> -->
 
