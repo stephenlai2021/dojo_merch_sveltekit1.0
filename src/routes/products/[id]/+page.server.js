@@ -6,6 +6,5 @@ export const load = async ({ params }) => {
     .select("*")
     .eq("id", params.id);
   console.log("product: ", data);
-
   return { product: data }
 };

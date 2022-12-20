@@ -1,12 +1,25 @@
-# create-svelte
-
 # Ecommerce App
 
-This is a simple ecommerce app, it is 'simple' because the api has only 20 products, this app is integrated Supabase aAth and Database to make it a fully functional ecommerce app. It also has a CMS, a page that allows admin to enter product data, the only thing missing is a shopping cart page and checkout functionality which will be added sooner.
+This is a simple ecommerce app, it is 'simple' because the api has only 20 products, this app is integrated Supabase Auth and Database to make it a fully functional ecommerce app. It also has a CMS, a page that allows admin to enter product data, the only thing missing is a shopping cart page and checkout functionality which will be added sooner.
 
 # Supabase as a backend service
 
-I personally think Supabase is the backend service, because it has the cleaniest api, easy to read and understand, and it provides the sample codes that integrates into popular frameworks such as Sveltekit, Next, Nuxt, Remix, etc. it makes adding backend functionality very easy into your app.
+I personally think Supabase is the best backend service, because it has the cleaniest api, easy to read and understand, and it provides the sample codes that integrates into popular frameworks such as Sveltekit, Next, Nuxt, Remix, etc. it makes adding backend functionality very easy into your app.
+
+# Project structure
+
+- In `src/routes/products/+page.serve.js`, load function fetch Supabase db with supabas SDK, then return products data as props to be used in +page.svete
+- In src/routes/products/+page.svelte, receives data passsed from `+page.server.js`, and displayed in template
+```
+export let data
+const { products } = data
+```
+- same with single product itme, in `src/routes/products/[id]/+page.serve.js`, load function fetch Supabase db with supabas SDK, then return products data as props to be used in +page.svete
+- In src/routes/products/[id]/+page.svelte, receives data passsed from `+page.server.js`, and displayed in template
+```
+export let data
+const { products } = data
+```
 
 # How to setup this project
 - First download this repo into your desktop and unzip it
