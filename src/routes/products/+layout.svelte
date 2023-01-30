@@ -8,7 +8,7 @@
 
   let selected;
   let categories = [
-    "-- Please choose an category --",
+    "All categories",
     "women's clothing",
     "men's clothing",
     "jewelery",
@@ -23,16 +23,24 @@
     cancel();
   };
 
+  const checkout = async () => {
+    console.log('checkout')
+  }
+
   // $: console.log("you have selected: ", selected);
   // $: console.log("you have selected: ", $selectedCategory);
 </script>
 
+<svelte:head>
+  <title>Ecommerce | Products</title>
+</svelte:head>
+
 <div>
   <header class="shadow-sm bg-white">
     <nav class="container mx-auto p-4 flex">
-      <div class="font-bold">Dojo Merch</div>
+      <div class="font-bold">Ecommerce</div>
       {#if $page.url.pathname !== "/products"}
-        <div class="ml-auto flex">
+        <div class="ml-auto flex hover:cursor-pointer" on:keydown on:click={checkout}>
           <i class="material-icons mr-1 text-[#12b488] text-3xl">shopping_cart</i>
           <CartCount />
         </div>

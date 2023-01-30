@@ -29,6 +29,7 @@
 </script>
 
 <svelte:head>
+  <title>Ecommerce</title>
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/icon?family=Material+Icons"

@@ -1,21 +1,28 @@
 <script>
-  import { shoppingItem } from '$lib/stores'
+  import { shoppingItem, value } from '$lib/stores'
 
   export let product
 
-  let value = 0
+  // JSON.stringify('quantity', $value)
+
+  // let value = 0
 
   const decreaseCounter = () => {
-    if (value === 0) return value = 0
-    value--
-    $shoppingItem = { product: product[0].title, count: value }
-    // console.log('shopping item: ', $shoppingItem)
+    // if (value === 0) return value = 0
+    // value--
+    // $shoppingItem = { product: product[0].title, count: value, total: (product[0].price * value).toFixed(2) }
+    
+    if ($value === 0) return $value = 0
+    $value--
+    $shoppingItem = { product: product[0].title, count: $value, total: (product[0].price * $value).toFixed(2) }
   }
   
   const increaseCounter = () => {
-    value++
-    $shoppingItem = { product: product[0].title, count: value }
-    // console.log('shopping item: ', $shoppingItem)
+    // value++
+    // $shoppingItem = { product: product[0].title, count: value, total: (product[0].price * value).toFixed(2) }
+
+    $value++
+    $shoppingItem = { product: product[0].title, count: $value, total: (product[0].price * $value).toFixed(2) }
   }
 </script>
 

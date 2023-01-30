@@ -38,3 +38,67 @@ If you want to learn Sveltekit in depth, check out Huntabyte's youtube channel w
 
 # Reference
 Huntabyte [https://www.youtube.com/@Huntabyte]
+
+Stripe product key
+```
+1. Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops:
+- API_ID: price_1MKZFyAshxqgnb1sNVndvSlM
+
+2. DANVOUY Womens T Shirt Casual Cotton Short
+- API_ID: price_1MKxAOAshxqgnb1sjG5CD10x
+
+3. Opna Women's Short Sleeve Moisture
+- API_ID: price_1MKx8sAshxqgnb1s3F0isTXo
+
+4. MBJ Women's Solid Short Sleeve Boat Neck V
+- API_ID: price_1MKx6lAshxqgnb1s0DOGgjlW
+
+5. Rain Jacket Women Windbreaker Striped Climbing Raincoats
+- API_ID: price_1MKZpRAshxqgnb1sEuaLyMSA
+
+6. Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket
+- API_ID: price_1MKZmwAshxqgnb1skQTrvhOS
+
+7. BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats
+- API_ID: price_1MKZlFAshxqgnb1sydPuEIAV
+
+8. Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED
+- API_ID: price_1MKZiPAshxqgnb1sVpgOLuBY
+
+9. Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin
+- API_ID: price_1MKZg0Ashxqgnb1sUGbXL4ER
+
+10. WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive
+- API_ID: price_1MKZe1Ashxqgnb1soIrtml7P
+
+11. Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5
+- API_ID: price_1MKZbvAshxqgnb1srYuEk8VV
+
+12. SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s
+- API_ID: price_1MKZZnAshxqgnb1sL8Bkel2p
+
+13. WD 2TB Elements Portable External Hard Drive - USB 3.0
+- API_ID: price_1MKZXgAshxqgnb1suOCRzMSH
+
+14. Pierced Owl Rose Gold Plated Stainless Steel Double
+- API_ID: price_1MKZW6Ashxqgnb1syarO1ec0
+
+15. White Gold Plated Princess
+- API_ID: price_1MKZUjAshxqgnb1s5F6rpObN
+
+16. Solid Gold Petite Micropave
+- API_ID: price_1MKZTFAshxqgnb1sRMZ53gxW
+
+17. John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet
+- API_ID: price_1MKZRHAshxqgnb1s6Puyx0f3
+
+18. Mens Casual Slim Fit
+- API_ID: price_1MKZPcAshxqgnb1shy2OZhUL
+
+19. Mens Cotton Jacket
+- API_ID: price_1MKZMsAshxqgnb1sGLh6xyNn
+
+20. Mens Casual Premium Slim Fit T-Shirts
+- API_ID: price_1MKZKjAshxqgnb1sdRxHfaRz
+
+```
