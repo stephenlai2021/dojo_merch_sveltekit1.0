@@ -1,5 +1,6 @@
 <script>
   import "../app.css";
+  import "$lib/styles/main.css";
   import Navbar from "$lib/components/Navbar.svelte";
   import { page } from "$app/stores";
   import { enhance } from "$app/forms";
@@ -29,20 +30,30 @@
 </script>
 
 <svelte:head>
-  <title>Ecommerce</title>
+  <title>ShopWare</title>
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
+  <link
+    href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+    rel="stylesheet"
   />
 </svelte:head>
 
 {#if $page.url.pathname !== "/products" && $page.url.pathname !== `/products/${$page.params.id}`}
   <header class="shadow-sm bg-white">
     <nav class="container mx-auto p-4 flex justify-between">
-      <div class="font-bold">Sveltekit Ecommerce</div>
-      {#if $page.url.pathname !== "/"}
-        <!-- <Navbar /> -->
+      <div class="font-bold logo">
+        <img
+          class="w-auto h-6 logo-img"
+          src="https://storage.googleapis.com/mixo-files/logos/shopWare-1675583821969.svg"
+          alt="ShopWare logo"
+        />
+        <span class="title">ShopWare</span>        
+      </div>
 
+      {#if $page.url.pathname !== "/"}
         <ul class="flex gap-4 ml-auto">
           {#if $page.url.pathname !== "/products" && $page.url.pathname !== "/signup"}
             <li>
@@ -72,6 +83,22 @@
     </nav>
   </header>
 {/if}
+
 <div class="container mx-auto p-4">
   <slot />
 </div>
+
+<style>
+  .logo-img {
+    margin-right: 8px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+</style>

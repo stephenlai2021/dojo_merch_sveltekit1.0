@@ -3,6 +3,7 @@ import { browser } from "$app/environment";
 
 export const value = writable(0)
 export const user = writable(null)
+export const showLogin = writable(false)
 export const selectedCategory = writable('-- Please choose an category --')
 export const shoppingItem = writable({})
 export const shoppingList = writable([])

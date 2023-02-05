@@ -27,24 +27,25 @@
     console.log('checkout')
   }
 
-  // $: console.log("you have selected: ", selected);
-  // $: console.log("you have selected: ", $selectedCategory);
+  $: console.log("user email: ", $page.data.session.user.email);
 </script>
 
 <svelte:head>
-  <title>Ecommerce | Products</title>
+  <title>ShopWare | Products</title>
 </svelte:head>
 
 <div>
   <header class="shadow-sm bg-white">
-    <nav class="container mx-auto p-4 flex">
-      <div class="font-bold">Ecommerce</div>
+    <nav class=" mx-auto p-4 flex">
+      <div class="font-bold text-gray-600">Products</div>
+
       {#if $page.url.pathname !== "/products"}
         <div class="ml-auto flex hover:cursor-pointer" on:keydown on:click={checkout}>
           <i class="material-icons mr-1 text-[#12b488] text-3xl">shopping_cart</i>
           <CartCount />
         </div>
       {/if}
+
       {#if $page.url.pathname === "/products"}
         <select
           bind:value={selected}
@@ -58,15 +59,16 @@
           {/each}
         </select>
       {/if}
+
     </nav>
   </header>
+
   <div class="container mx-auto p-4">
     <slot />
   </div>
+  
   <footer class="container mx-auto p-4 flex justify-end border-t-2">
-    <!-- <Navbar class="w-full" /> -->
-
-    <ul class="flex gap-4">
+    <ul class="flex gap-4 menu">
       {#if $page.url.pathname !== "/products"}
         <li>
           <a data-sveltekit-prefetch href="/products" class="btn">Products</a>
@@ -80,7 +82,7 @@
       {/if}
 
       {#if $page.url.pathname !== "/"}
-        <li>
+        <li class="icon-logout">
           <form action="/logout" method="POST" use:enhance={submitLogout}>
             <button type="submit" class="btn-primary">
               <i class="material-icons text-[#12b488]">logout</i>
@@ -91,3 +93,11 @@
     </ul>
   </footer>
 </div>
+
+<style>
+  select {
+    font-size: 18px;
+    color: darkgray;
+    outline: none;
+  }
+</style>

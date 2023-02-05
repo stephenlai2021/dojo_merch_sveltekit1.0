@@ -1,40 +1,75 @@
-<div class="w-full max-w-md mx-auto mt-8">
-  <h1 class="text-center text-2xl">Login</h1>
-  <form
-    class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-    method="POST"
-    action="?/login"
-  >
-    <div class="mb-4">
-      <label class="label" for="title">Email</label>
-      <input
-        id="title"
-        type="email"
-        name="email"
-        class="input shadow"
-        placeholder="Enter email"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="label" for="price">Password</label>
-      <input
-        id="price"
-        type="password"
-        name="password"
-        class="input shadow"
-        placeholder="Enter password"
-      />
-    </div>
+<script>
+  import { showLogin } from "$lib/stores";
+  import imgGoogle from "$lib/images/google.png";
+  import imgFacebook from "$lib/images/facebook.png";
 
-    <div class="flex items-center justify-between">
-      <button class="btn w-full hover:bg-[#52EEA1]" type="submit">Submit</button>
+  let passwordType = "password";
+
+  const togglePassword = () => {
+    if (passwordType === "password") {
+      passwordType = "text";
+    } else {
+      passwordType = "password";
+    }
+  };
+</script>
+
+<div class="form login">
+  <div class="form-content">
+    <header>Login</header>
+    <form action="?/login" method="POST">
+      <div class="field input-field">
+        <input type="email" name="email" placeholder="Email" class="input" />
+      </div>
+
+      <div class="field input-field">
+        <input
+          type={passwordType}
+          name="password"
+          placeholder="Password"
+          class="password"
+        />
+        <i
+          class="bx eye-icon"
+          class:bx-hide={passwordType === "password"}
+          class:bx-show={passwordType === "text"}
+          on:keydown
+          on:click={togglePassword}
+        />
+      </div>
+
+      <div class="form-link">
+        <a href="/" class="forgot-pass">Forgot password?</a>
+      </div>
+
+      <div class="field button-field">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+
+    <div class="form-link">
+      <span>
+        Don't have an account?
+        <a href="/signup" class="link" on:click={() => ($showLogin = false)}>
+          Signup
+        </a>
+      </span>
     </div>
-  </form>
-  <p class="text-center text-gray-500 text-xs">
-    <!-- &copy;2022 Dojo Corp. All rights reserved. -->
-    Don't have an account yet? Please
-    <b class="font-bold text-green-500 text-sm">
-      <a href="/signup">register</a>
-    </b> 😘 first
-  </p>
+  </div>
+
+  <div class="line" />
+
+  <div class="media-options">
+    <a href="/" class="field facebook">
+      <img class="facebook-icon" src={imgFacebook} alt="" />
+      <span>Login with Facebook</span>
+    </a>
+  </div>
+
+  <div class="media-options">
+    <a href="/" class="field google">
+      <img src={imgGoogle} alt="" class="google-img" />
+      <span>Login with Google</span>
+    </a>
+  </div>
 </div>

@@ -8,7 +8,7 @@ export const load = ({ locals, url }) => {
 }
 
 export const actions = {
-	signup: async ({ request, locals }) => {
+	register: async ({ request, locals }) => {
 		const body = Object.fromEntries(await request.formData())
 
     const { data, error: err } = await locals.sb.auth.signUp({
