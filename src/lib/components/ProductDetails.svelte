@@ -11,8 +11,6 @@
   export let product;
 
   const addToCart = () => {
-    // $shoppingList = [$shoppingItem, ...$shoppingList]
-    // $shoppingList = $shoppingList.filter(
     $shoppingList = [$shoppingItem, ...$shoppingList].filter(
       (value, index, self) =>
         index ===
@@ -20,6 +18,7 @@
     );
     $isAddToCart = true
     console.log("Your shopping list: ", $shoppingList);
+    // alert('hi, there !')
   };
 </script>
 
@@ -48,6 +47,11 @@
 </div>
 
 <style scoped>
+  .btn {
+    display: flex;
+    align-items: center;
+  }
+
   img {
     /* max-width: 300px; */
     width: 300px;

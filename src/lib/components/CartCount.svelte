@@ -14,12 +14,25 @@
   }
 </script>
 
-<div class="count text-[#12b488] font-bold">
-  {$totalShoppingCount}
+<div class="quantity-wrapper text-[#12b488] font-bold">
+  <span class="quantity">{$totalShoppingCount}</span> 
 </div>
 
 <style>
-  .count {
-    height: 25px;
+  .quantity-wrapper {
+    position: absolute;
+    top: -24px;
+    right: 0;
+  }
+
+  .quantity {
+    font-size: 14px;
+    background: red;
+    /* height: 24px; */
+    color: white;
+    padding: 0 5px;
+    /* width: 10px; */
+    border-radius: 50px;
+
   }
 </style>

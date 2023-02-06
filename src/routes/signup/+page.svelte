@@ -80,4 +80,7 @@
 </div>
 
 <style>
+  .signup {
+    margin-top: 30px;
+  }
 </style>

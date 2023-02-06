@@ -14,8 +14,16 @@
 
 <div />
 
-<div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5">
+<div class="layout">
   {#each filteredProducts as product}
     <ProductCard {product} />
   {/each}
 </div>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 10px;
+  }
+</style>
