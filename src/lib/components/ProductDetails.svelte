@@ -44,15 +44,15 @@
 <div class="card">
   <div class="grid lg:grid-cols-2 xs:grid-cols-1">
     <div class="p-7">
-      <img src={products[0].image} alt="product" class="mx-auto my-7" />
+      <img src={products[0].image} alt="product" class="mx-auto product-image" />
     </div>
     <div class="p-7">
-      <h2 class="text-4xl my-7">
-        <p>{products[0].title}</p>
-      </h2>
+      <!-- <h2 class="my-7"> -->
+        <p class="product-title">{products[0].title}</p>
+      <!-- </h2> -->
       <p class="text-xl my-7">Price - ${products[0].price}</p>
       <h3 class="font-bold border-b-2 mb-4 pb-2">
-        <p class="mb-7">{products[0].description}</p>
+        <p class="mb-7 product-desription">{products[0].description}</p>
       </h3>
       <div class="cart flex">
         <button class="btn flex item-center mr-2" on:click={addToCart}>
@@ -66,6 +66,15 @@
 </div>
 
 <style scoped>
+  .product-image {
+    margin: 28px auto;
+    /* border: 1px solid; */    
+  }
+
+  .product-title {
+    font-size: 36px;
+  }
+
   .btn {
     display: flex;
     align-items: center;
@@ -73,12 +82,23 @@
 
   img {
     /* max-width: 300px; */
-    width: 300px;
+    width: 500px;
+  }
+
+  @media (max-width: 500px) {
+    .product-image {
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .product-title {
+      font-size: 24px;
+    }
   }
 
   @media (max-width: 575px) {
     img {
-      max-width: 200;
+      /* max-width: 200px; */
     }
   }
 </style>

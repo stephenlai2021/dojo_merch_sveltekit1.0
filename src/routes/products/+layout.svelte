@@ -71,7 +71,7 @@
       {#if $mobile}
         <img src={IconLogo} width="36" height="36" alt="" />
       {:else}
-        <div class="font-bold text-gray-600 title">Products</div>
+        <div class="font-bold text-gray-600 title cursor-pointer" on:keydown on:click={() => goto('/products')}>Products</div>
       {/if}
 
       {#if $page.url.pathname !== "/products"}
