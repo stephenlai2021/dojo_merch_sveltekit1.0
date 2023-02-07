@@ -4,7 +4,7 @@
   import { enhance } from "$app/forms";
   import { onMount } from "svelte";
   import { supabaseClient } from "$lib/supabase/config";
-  import { goto } from '$app/navigation'
+  import { goto } from "$app/navigation";
   import Navbar from "$lib/components/Navbar.svelte";
   import CartCount from "$lib/components/CartCount.svelte";
   import Menu from "$lib/components/Menu.svelte";
@@ -31,22 +31,25 @@
   };
 
   const handleMenuOpen = () => {
-    if ($showMenu) { $showMenu = false }
-    else { $showMenu = true }
-		document.body.addEventListener('click', handleMenuClose)
-	}
+    if ($showMenu) {
+      $showMenu = false;
+    } else {
+      $showMenu = true;
+    }
+    document.body.addEventListener("click", handleMenuClose);
+  };
 
-	const handleMenuClose = () => {
-		$showMenu = false
-		document.body.removeEventListener('click', handleMenuClose)
-	}
+  const handleMenuClose = () => {
+    $showMenu = false;
+    document.body.removeEventListener("click", handleMenuClose);
+  };
 
   const checkOut = async () => {
-    const res = await fetch('/api/checkout')
-    const data = await res.json()
-    console.log('checkout url:', data.url)
-    goto(data.url)
-  }
+    const res = await fetch("/api/checkout");
+    const data = await res.json();
+    console.log("checkout url:", data.url);
+    goto(data.url);
+  };
 
   onMount(() => {
     window.addEventListener("resize", () => {
@@ -55,7 +58,7 @@
     });
   });
 
-  $: console.log("user email: ", $page.data.session.user.email);
+  // $: console.log("user email: ", $page.data.session.user.email);
 </script>
 
 <svelte:head>
@@ -66,18 +69,18 @@
   <header class="shadow-sm bg-white">
     <nav class="wrapper p-4">
       {#if $mobile}
-        <img src={IconLogo} width="36" height="36" alt="">
+        <img src={IconLogo} width="36" height="36" alt="" />
       {:else}
         <div class="font-bold text-gray-600 title">Products</div>
       {/if}
 
       {#if $page.url.pathname !== "/products"}
-        <div class="ml-auto flex hover:cursor-pointer icon-cart-wrapper">
-          <i 
-            class="material-icons mr-1 text-[#12b488] text-3xl"
-            on:keydown
-            on:click={checkOut}
-          >
+        <div
+          class="ml-auto flex hover:cursor-pointer icon-cart-wrapper"
+          on:keydown
+          on:click={checkOut}
+        >
+          <i class="material-icons mr-1 text-[#12b488] text-3xl">
             shopping_cart
           </i>
           <CartCount />

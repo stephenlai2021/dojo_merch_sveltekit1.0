@@ -3,16 +3,16 @@
   import ProductDetails from "$lib/components/ProductDetails.svelte";
 
   export let data;
-  const { product } = data;
+  const { products } = data;
 
   $: console.log(JSON.stringify($shoppingList, null, 2));
 </script>
 
 <svelte:head>
-  <title>Product | {product[0].title}</title>
-  <meta name="description" content={product.description} />
+  <title>Product | {products[0].title}</title>
+  <meta name="description" content={products.description} />
 </svelte:head>
 
 <div>
-  <ProductDetails {product} />
+  <ProductDetails {products} />
 </div>

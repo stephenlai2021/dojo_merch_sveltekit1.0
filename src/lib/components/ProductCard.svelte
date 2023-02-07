@@ -12,9 +12,7 @@
 
 <style scoped>
   .thumb {
-    /* max-height: 120px; */
     height: 120px;
-    /* max-width: 70%; */
     margin: 0 auto;
   }
 </style>

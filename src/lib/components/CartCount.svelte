@@ -1,5 +1,5 @@
 <script>
-  import { isAddToCart, shoppingList, totalShoppingCount } from '$lib/stores'
+  import { isAddToCart, shoppingList, totalShoppingCount, value } from '$lib/stores'
 
   $: if ($isAddToCart && $shoppingList) {
     console.log('shopping list | cart count: ', $shoppingList)
@@ -16,6 +16,7 @@
 
 <div class="quantity-wrapper text-[#12b488] font-bold">
   <span class="quantity">{$totalShoppingCount}</span> 
+  <!-- <span class="quantity">{$value}</span>  -->
 </div>
 
 <style>
@@ -32,7 +33,7 @@
     color: white;
     padding: 0 5px;
     /* width: 10px; */
-    border-radius: 50px;
+    border-radius: 4px;
 
   }
 </style>

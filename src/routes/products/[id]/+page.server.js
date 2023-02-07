@@ -5,6 +5,10 @@ export const load = async ({ params }) => {
     .from("products")
     .select("*")
     .eq("id", params.id);
-  console.log("product: ", data);
-  return { product: data }
+  console.log("products: ", data);
+
+  if (error) {
+    console.log('error: ', error)
+  }
+  return { products: data }
 };
