@@ -1,11 +1,8 @@
 <script>
-  import { shoppingList } from "$lib/stores";
   import ProductDetails from "$lib/components/ProductDetails.svelte";
 
   export let data;
   const { products } = data;
-
-  $: console.log(JSON.stringify($shoppingList, null, 2));
 </script>
 
 <svelte:head>

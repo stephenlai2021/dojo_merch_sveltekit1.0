@@ -1,0 +1,1 @@
+<h1>Please check your email box to confirm</h1>

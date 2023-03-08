@@ -1,29 +1,34 @@
-import { writable } from 'svelte/store'
+import { writable } from "svelte/store";
 import { browser } from "$app/environment";
 
-export const value = writable(0)
-export const user = writable(null)
-export const mobile = writable(false)
-export const showMenu = writable(false)
-export const showLogin = writable(false)
-export const mobilePhone = writable(false)
-export const selectedCategory = writable('-- Please choose an category --')
-export const shoppingItem = writable({})
-export const shoppingList = writable([])
-export const shoppingCount = writable(0)
-export const totalShoppingCount = writable(0)
-export const isAddToCart = writable(false)
+export const user = writable(null);
+export const value = writable(1);
+export const mobile = writable(false);
+export const showMenu = writable(false);
+export const showLogin = writable(false);
+export const mobilePhone = writable(false);
+export const selectedCategory = writable("-- Please choose an category --");
 
-// export const totalShoppingCount = writable(
-//   browser && (JSON.parse(localStorage.getItem("total shopping count")) || 0)
-// );
-// totalShoppingCount.subscribe(
-//   (val) => browser && localStorage.setItem("total shopping count", val)
-// );
+export const cartItems = writable([])
+export const totalCartQuantity = writable(0)
 
-// export const shoppingList = writable(
-//   browser && localStorage.getItem("shopping list") || null
+// export const cartItems = writable(
+//   (browser && JSON.parse(localStorage.getItem("cart items"))) || []
+//   // JSON.parse(localStorage.getItem("cart items")) || []
 // );
-// shoppingList.subscribe(
-//   (val) => browser && localStorage.setItem("shopping list", val)
-// );
+// if (typeof localStorage !== "undefined") {
+//   cartItems.subscribe((value) =>
+//     // browser && localStorage.setItem("cart items", JSON.stringify(value))
+//     localStorage.setItem("cart items", JSON.stringify(value))
+//   );
+// }
+
+// export const totalCartQuantity =
+//   writable(browser && localStorage.getItem("cart quantity")) || 0;
+//   // writable(localStorage.getItem("cart quantity") || 0);
+// if (typeof localStorage !== "undefined") {
+//   totalCartQuantity.subscribe(
+//     // (value) => browser && localStorage.setItem("cart quantity", value)
+//     (value) => localStorage.setItem("cart quantity", value)
+//   );
+// }

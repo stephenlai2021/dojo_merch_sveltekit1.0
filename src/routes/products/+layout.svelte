@@ -10,8 +10,19 @@
   import Menu from "$lib/components/Menu.svelte";
   import IconLogo from "$lib/images/logo.png";
   import IconAvatar from "$lib/images/avatar.png";
+  import avatar from '$lib/images/avatar.png'
 
-  let userEmail = $page.data.session.user.email;
+  // let userEmail = $page.data.session.user.email;
+  
+  // const user = supabaseClient.auth.user()
+  // console.log('user: ', user)
+
+  console.log('user: ', $page.data.session.user)
+  console.log('user email: ', $page.data.session.user.email)
+  console.log('user avatar: ', $page.data.session.user.user_metadata.avatar_url)
+
+  let userEmail = $page.data.session.user.email
+  let userAvatar = $page.data.session.user.user_metadata?.avatar_url
 
   let selected;
   let categories = [
@@ -71,7 +82,13 @@
       {#if $mobile}
         <img src={IconLogo} width="36" height="36" alt="" />
       {:else}
-        <div class="font-bold text-gray-600 title cursor-pointer" on:keydown on:click={() => goto('/products')}>Products</div>
+        <div
+          class="font-bold text-gray-600 title cursor-pointer"
+          on:keydown
+          on:click={() => goto("/products")}
+        >
+          Products
+        </div>
       {/if}
 
       {#if $page.url.pathname !== "/products"}
@@ -102,13 +119,25 @@
       {/if}
 
       {#if $page.url.pathname === "/products"}
-        <img
-          class="icon-avatar"
-          src={IconAvatar}
-          alt=""
+        <div
+          class="ml-auto flex hover:cursor-pointer icon-cart-wrapper"
           on:keydown
-          on:click|stopPropagation={handleMenuOpen}
-        />
+          on:click={checkOut}
+        >
+          <i class="material-icons mr-1 text-[#12b488] text-3xl">
+            shopping_cart
+          </i>
+          <CartCount />
+        </div>
+        <div class="user-avatar-wrapper">
+          <img
+            class="icon-avatar"
+            src={userAvatar ? userAvatar : avatar}
+            alt=""
+            on:keydown
+            on:click|stopPropagation={handleMenuOpen}
+          />
+        </div>
       {/if}
     </nav>
   </header>
@@ -149,9 +178,13 @@
 </div>
 
 <style>
+  
+  .menu {
+    align-items: center;
+  }
+
   .icon-cart-wrapper {
     position: relative;
-    /* border: 1px solid; */
   }
 
   .drop-down-menu {
@@ -164,8 +197,9 @@
 
   .icon-avatar {
     width: 32px;
+    height: 32px;
+    border-radius: 50%;
     margin-left: 30px;
-    cursor: pointer;
   }
 
   .wrapper {

@@ -1,5 +1,7 @@
 <script>
   import { showLogin } from "$lib/stores";
+  import { enhance } from "$app/forms";
+  import { supabaseClient } from "$lib/supabase/config";
   import imgGoogle from "$lib/images/google.png";
   import imgFacebook from "$lib/images/facebook.png";
 
@@ -12,6 +14,33 @@
       passwordType = "password";
     }
   };
+
+  const signInWithProvider = async (provider) => {
+		const { data, error } = await supabaseClient.auth.signInWithOAuth({
+			provider: provider
+		});
+
+    if (data) console.log('github account | client: ', data)
+
+    if (error) console.log(error)
+	};
+
+  const submitSocialLogin = async ({ action, cancel }) => {
+		switch (action.searchParams.get('provider')) {
+			case 'google':
+				await signInWithProvider('google');
+				break;
+			case 'discord':
+				await signInWithProvider('discord');
+				break;
+			case 'github':
+				await signInWithProvider('github');
+				break;
+			default:
+				break;
+		}
+		cancel();
+	};
 </script>
 
 <div class="form login">
@@ -60,10 +89,20 @@
   <div class="line" />
 
   <div class="media-options">
-    <a href="/" class="field facebook">
+    <!-- <a href="/" class="field facebook">
       <img class="facebook-icon" src={imgFacebook} alt="" />
       <span>Login with Facebook</span>
-    </a>
+    </a> -->
+
+    <form method="POST" use:enhance={submitSocialLogin}>
+      <button
+        class="py-4 px-4 rounded-full w-full mt-5 btn-github bg-secondary"
+        formaction="?/login&provider=github"
+      >
+        <!-- {$t("common.btn-github")} -->
+        <span>Login with Github</span>
+      </button>
+    </form>
   </div>
 
   <div class="media-options">

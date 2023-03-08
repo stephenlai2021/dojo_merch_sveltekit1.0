@@ -8,7 +8,33 @@ export const load = ({ locals, url }) => {
 }
 
 export const actions = {
-	login: async ({ request, locals }) => {
+	login: async ({ request, locals, url }) => {
+		
+		// Github Auth
+		const provider = url.searchParams.get("provider")
+
+    if (provider) {
+      if (!OAUTH_PROVIDERS.includes(provider)) {
+        return fail(400, {
+          error: "Provider not supported.",
+        });
+      }
+
+      const { data, error: err } = await locals.sb.auth.signInWithOAuth({
+        provider: provider,
+      });
+
+      if (err) {
+        console.log(err);
+        return fail(400, {
+          message: "Something went wrong.",
+        });
+      }      
+
+      throw redirect(303, data.url);
+    }
+
+		// Email Auth
 		const body = Object.fromEntries(await request.formData())
 
     const { data, error: err } = await locals.sb.auth.signInWithPassword({

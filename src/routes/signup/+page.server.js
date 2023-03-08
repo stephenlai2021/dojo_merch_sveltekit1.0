@@ -16,7 +16,10 @@ export const actions = {
 			password: body.password,
 		})
 
-    if (data) console.log('user: ', data)
+		if (data) {
+			console.log('user: ', data)
+			// throw redirect(303, '/redirect')
+		}
 
 		if (err) {
 			if (err instanceof AuthApiError && err.status === 400) {

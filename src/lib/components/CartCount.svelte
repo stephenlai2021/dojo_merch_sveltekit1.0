@@ -1,39 +1,43 @@
 <script>
-  import { isAddToCart, shoppingList, totalShoppingCount, value } from '$lib/stores'
+  import { totalCartQuantity } from '$lib/stores'
+  // import { browser } from '$app/environment'
 
-  $: if ($isAddToCart && $shoppingList) {
-    console.log('shopping list | cart count: ', $shoppingList)
+  // totalCartQuantityVal.subscribe(value => browser && localStorage.setItem('cart quantity', value))
 
-    $totalShoppingCount = 0
+  // let cartQuantity 
 
-    $shoppingList.map(item => {
-      return $totalShoppingCount += item.count
-    })
+  // const getCartQuantity = () => {
+  //   return localStorage.getItem('cart quantity') || 0
+  // }
 
-    console.log('total cart counts: ', $totalShoppingCount)
-  }
+  // $: cartQuantity = localStorage.getItem('cart quantity') || 0
 </script>
 
 <div class="quantity-wrapper text-[#12b488] font-bold">
-  <span class="quantity">{$totalShoppingCount}</span> 
-  <!-- <span class="quantity">{$value}</span>  -->
+  <span class="quantity">{$totalCartQuantity}</span> 
+  <!-- <span class="quantity">{JSON.parse(localStorage.getItem("cart quantity"))}</span>  -->
+  <!-- <span class="quantity">{localStorage.getItem("cart quantity") || 0}</span>  -->
+  <!-- <span class="quantity">{getCartQuantity()}</span>  -->
+  <!-- <span class="quantity">{cartQuantity}</span>  -->
 </div>
 
 <style>
   .quantity-wrapper {
     position: absolute;
-    top: -24px;
-    right: 0;
+    top: -20px;
+    right: -6px;
+    /* bottom: -3px; */
   }
 
   .quantity {
-    font-size: 14px;
+    font-size: 12px;
     background: red;
-    /* height: 24px; */
+    font-weight: 600;
     color: white;
-    padding: 0 5px;
-    /* width: 10px; */
+    /* color: red; */
+    padding: 3px;
     border-radius: 4px;
+    border-radius: 50px;
 
   }
 </style>
