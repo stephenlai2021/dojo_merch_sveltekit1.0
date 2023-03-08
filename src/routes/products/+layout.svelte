@@ -102,7 +102,7 @@
           on:keydown
           on:click={checkOut}
         >
-          <i class="material-icons mr-1 text-[#12b488] text-2xl">
+          <i class="material-icons mr-1 text-[#12b488] text-">
             shopping_cart
           </i>
           <CartCount />
@@ -180,10 +180,10 @@
   }
 
   .icon-avatar {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    margin-left: 20px;
+    margin-left: 25px;
   }
 
   .wrapper {
