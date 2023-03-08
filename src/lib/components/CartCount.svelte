@@ -1,43 +1,28 @@
 <script>
   import { totalCartQuantity } from '$lib/stores'
-  // import { browser } from '$app/environment'
-
-  // totalCartQuantityVal.subscribe(value => browser && localStorage.setItem('cart quantity', value))
-
-  // let cartQuantity 
-
-  // const getCartQuantity = () => {
-  //   return localStorage.getItem('cart quantity') || 0
-  // }
-
-  // $: cartQuantity = localStorage.getItem('cart quantity') || 0
 </script>
 
-<div class="quantity-wrapper text-[#12b488] font-bold">
+<div class="quantity-wrapper text- font-">
   <span class="quantity">{$totalCartQuantity}</span> 
-  <!-- <span class="quantity">{JSON.parse(localStorage.getItem("cart quantity"))}</span>  -->
-  <!-- <span class="quantity">{localStorage.getItem("cart quantity") || 0}</span>  -->
-  <!-- <span class="quantity">{getCartQuantity()}</span>  -->
-  <!-- <span class="quantity">{cartQuantity}</span>  -->
 </div>
 
 <style>
   .quantity-wrapper {
     position: absolute;
-    top: -20px;
+    top: -10px;
     right: -6px;
-    /* bottom: -3px; */
+    background: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
   }
 
   .quantity {
-    font-size: 18px;
-    /* background: red; */
-    font-weight: 600;
-    color: red;
-    /* color: red; */
-    padding: 3px;
-    border-radius: 4px;
-    border-radius: 50px;
-
+    position: absolute;
+    font-size: 12px;
+    color: white; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 </style>

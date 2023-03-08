@@ -98,7 +98,7 @@
 
       {#if $page.url.pathname === "/products"}
         <div
-          class="ml-auto flex hover:cursor-pointer icon-cart-wrapper"
+          class="ml-auto relative flex hover:cursor-pointer"
           on:keydown
           on:click={checkOut}
         >
@@ -171,10 +171,6 @@
     align-items: center;
   }
 
-  .icon-cart-wrapper {
-    position: relative;
-  }
-
   .drop-down-menu {
     margin-left: auto;
   }
@@ -194,7 +190,6 @@
     display: flex;
     align-items: center;
     position: relative;
-    /* border: 1px solid; */
   }
 
   select {
@@ -216,7 +211,6 @@
       display: block;
       text-align: center;
       justify-content: center;
-      /* border: 1px solid; */
       margin-bottom: 20px;
     }
   }
