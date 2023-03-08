@@ -30,10 +30,10 @@
   }
 
   .quantity {
-    font-size: 12px;
-    background: red;
+    font-size: 18px;
+    /* background: red; */
     font-weight: 600;
-    color: white;
+    color: red;
     /* color: red; */
     padding: 3px;
     border-radius: 4px;

@@ -3,6 +3,7 @@
   import { fade } from "svelte/transition";
   import { enhance } from "$app/forms";
   import { supabaseClient } from "$lib/supabase/config";
+  import DropdownMenu from '$lib/components/DropdownMenu.svelte'
 
 	console.log('user email: ', $page.data.session.user.email)
   console.log('user avatar: ', $page.data.session.user.user_metatdata)
@@ -36,6 +37,7 @@
 </script>
 
 <ul class="menu" transition:slidefade on:keydown on:click|stopPropagation>
+  <!-- <li><DropdownMenu /></li> -->
   <li>{userEmail}</li>
   <li class="icon-logout">
     <form action="/logout" method="POST" use:enhance={submitLogout}>

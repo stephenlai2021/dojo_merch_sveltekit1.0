@@ -1,37 +1,25 @@
 <script>
-  import { selectedCategory, showMenu, mobile } from "$lib/stores";
+  import { selectedCategory, showMenu, mobile, selected } from "$lib/stores";
   import { page } from "$app/stores";
   import { enhance } from "$app/forms";
   import { onMount } from "svelte";
   import { supabaseClient } from "$lib/supabase/config";
   import { goto } from "$app/navigation";
-  import Navbar from "$lib/components/Navbar.svelte";
   import CartCount from "$lib/components/CartCount.svelte";
   import Menu from "$lib/components/Menu.svelte";
   import IconLogo from "$lib/images/logo.png";
-  import IconAvatar from "$lib/images/avatar.png";
-  import avatar from '$lib/images/avatar.png'
+  import avatar from "$lib/images/avatar.png";
+  import DropdownMenu from "$lib/components/DropdownMenu.svelte";
 
-  // let userEmail = $page.data.session.user.email;
-  
-  // const user = supabaseClient.auth.user()
-  // console.log('user: ', user)
+  console.log("user: ", $page.data.session.user);
+  console.log("user email: ", $page.data.session.user.email);
+  console.log(
+    "user avatar: ",
+    $page.data.session.user.user_metadata.avatar_url
+  );
 
-  console.log('user: ', $page.data.session.user)
-  console.log('user email: ', $page.data.session.user.email)
-  console.log('user avatar: ', $page.data.session.user.user_metadata.avatar_url)
-
-  let userEmail = $page.data.session.user.email
-  let userAvatar = $page.data.session.user.user_metadata?.avatar_url
-
-  let selected;
-  let categories = [
-    "All categories",
-    "women's clothing",
-    "men's clothing",
-    "jewelery",
-    "electronics",
-  ];
+  let userEmail = $page.data.session.user.email;
+  let userAvatar = $page.data.session.user.user_metadata?.avatar_url;
 
   const submitLogout = async ({ cancel }) => {
     const { error } = await supabaseClient.auth.signOut();
@@ -68,8 +56,6 @@
       if (window.innerWidth > 500) $mobile = false;
     });
   });
-
-  // $: console.log("user email: ", $page.data.session.user.email);
 </script>
 
 <svelte:head>
@@ -97,7 +83,7 @@
           on:keydown
           on:click={checkOut}
         >
-          <i class="material-icons mr-1 text-[#12b488] text-3xl">
+          <i class="material-icons mr-1 text-[#12b488] text-2xl">
             shopping_cart
           </i>
           <CartCount />
@@ -105,17 +91,9 @@
       {/if}
 
       {#if $page.url.pathname === "/products"}
-        <select
-          bind:value={selected}
-          class="p-1 rounded-md border drop-down-menu"
-          on:change={() => ($selectedCategory = selected)}
-        >
-          {#each categories as category}
-            <option value={category}>
-              {category}
-            </option>
-          {/each}
-        </select>
+        <div class="dropdown-menu-top">
+          <DropdownMenu />
+        </div>
       {/if}
 
       {#if $page.url.pathname === "/products"}
@@ -124,7 +102,7 @@
           on:keydown
           on:click={checkOut}
         >
-          <i class="material-icons mr-1 text-[#12b488] text-3xl">
+          <i class="material-icons mr-1 text-[#12b488] text-2xl">
             shopping_cart
           </i>
           <CartCount />
@@ -147,6 +125,9 @@
   {/if}
 
   <div class=" mx-auto p-4">
+    <div class="dropdown-menu-main">
+      <DropdownMenu />
+    </div>
     <slot />
   </div>
 
@@ -178,7 +159,14 @@
 </div>
 
 <style>
-  
+  .dropdown-menu-top {
+    margin-left: auto;
+  }
+
+  .dropdown-menu-main {
+    display: none;
+  }
+
   .menu {
     align-items: center;
   }
@@ -196,10 +184,10 @@
   }
 
   .icon-avatar {
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    margin-left: 30px;
+    margin-left: 20px;
   }
 
   .wrapper {
@@ -216,20 +204,20 @@
   }
 
   @media (max-width: 500px) {
-    .icon-avatar {
-      margin-left: 0;
-    }
     .wrapper {
       justify-content: space-between;
     }
-    .drop-down-menu {
-      margin-left: 0;
-    }
-  }
 
-  @media (max-width: 575px) {
-    .icon-avatar {
-      margin-left: 10px;
+    .dropdown-menu-top {
+      display: none;
+    }
+
+    .dropdown-menu-main {
+      display: block;
+      text-align: center;
+      justify-content: center;
+      /* border: 1px solid; */
+      margin-bottom: 20px;
     }
   }
 </style>
