@@ -16,31 +16,31 @@
   };
 
   const signInWithProvider = async (provider) => {
-		const { data, error } = await supabaseClient.auth.signInWithOAuth({
-			provider: provider
-		});
+    const { data, error } = await supabaseClient.auth.signInWithOAuth({
+      provider: provider,
+    });
 
-    if (data) console.log('github account | client: ', data)
+    if (data) console.log("github account | client: ", data);
 
-    if (error) console.log(error)
-	};
+    if (error) console.log(error);
+  };
 
   const submitSocialLogin = async ({ action, cancel }) => {
-		switch (action.searchParams.get('provider')) {
-			case 'google':
-				await signInWithProvider('google');
-				break;
-			case 'discord':
-				await signInWithProvider('discord');
-				break;
-			case 'github':
-				await signInWithProvider('github');
-				break;
-			default:
-				break;
-		}
-		cancel();
-	};
+    switch (action.searchParams.get("provider")) {
+      case "google":
+        await signInWithProvider("google");
+        break;
+      case "discord":
+        await signInWithProvider("discord");
+        break;
+      case "github":
+        await signInWithProvider("github");
+        break;
+      default:
+        break;
+    }
+    cancel();
+  };
 </script>
 
 <div class="form login">
@@ -89,17 +89,9 @@
   <div class="line" />
 
   <div class="media-options">
-    <!-- <a href="/" class="field facebook">
-      <img class="facebook-icon" src={imgFacebook} alt="" />
-      <span>Login with Facebook</span>
-    </a> -->
-
-    <form method="POST" use:enhance={submitSocialLogin}>
-      <button
-        class="py-4 px-4 rounded-full w-full mt-5 btn-github bg-secondary"
-        formaction="?/login&provider=github"
-      >
-        <!-- {$t("common.btn-github")} -->
+    <form method="POST" use:enhance={submitSocialLogin} class="btn-github-wrapper field">
+      <button class="btn-github" formaction="?/login&provider=github">
+        <img class="google-img" src="https://icons-for-free.com/iconfiles/png/512/part+1+github-1320568339880199515.png" alt="" />
         <span>Login with Github</span>
       </button>
     </form>
@@ -114,6 +106,14 @@
 </div>
 
 <style>
+  .media-option {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-github {
+    width: 100%;
+  }
+
   .login {
     margin-top: 30px;
   }
